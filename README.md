@@ -5,7 +5,7 @@ Visitor Analysis database enables users to analyze United States visitors by var
 ## **Conceptual Data Model**
 Entity Relationship (ER) Model technique is used to design database structure. Conceptual data model (as displayed below) contains visitor_analysis as fact table and visitors, arrival_date, state_demographics, and state_demographics_by_race dimension tables. 
 
-<INSERT PIC>
+![](Data_Model.png)
 
 Above model allows users to perform basic visitors’ analysis such as visitors by port city or by visa categories quickly using the fact table, visitors_analysis. Additional detailed analysis can be performed by joining to other dimension tables.
 
