@@ -25,5 +25,23 @@ Transformed data is then copied into Redshift cluster using COPY command. For I9
 
 Above mentioned process can be autonomously run using Apache Airflow workflow management platform. Airflow can be programmed to run at a pre-assigned schedule and the process can be monitored for any failures. Airflow or any other scheduler would be a preferred way to run this process if running any more frequently than monthly.
 
+## **Manual Update Process Commands**  
+Update demographics data once a year or whenever new data is available  
+`spark-submit --master yarn --packages 'org.apache.hadoop:hadoop-aws:2.8.5 --conf spark.hadoop.fs.s3a.fast.upload=true demographics_data_processing.py`  
+
+Process immigration data - monthly update  
+Provide immigration file name as argument  
+`spark-submit --master yarn --packages 'org.apache.hadoop:hadoop-aws:2.8.5 --packages 'saurfang:spark-sas7bdat:2.0.0-s_2.11 --conf spark.hadoop.fs.s3a.fast.upload=true immigration_data_processing.py 'i94_feb16_sub.sas7bdat`  
+
+### If running ETL first time, run create_tables.py or else skip that step  
+Create tables in Redshift  
+`python3 create_tables.py`  
+
+Extract demographics data from AWS S3 and load to Redshift  
+`python3 load_demographics.py`  
+
+Extract immigration data from AWS S3 and load to Redshift  
+`python3 load_immigration.py`  
+
 ## **Proposed Update Schedule**
 Both datasets are different in nature and use and therefore would require different schedules to update each. Census survey is usually performed once in multiple years. Hence, demographics data doesn’t need to be updated frequently. For this project, demographics is updated once a year. On the other hand, I94 data, in the current service is available in monthly, quarterly, and yearly subscriptions. Hence, it will need a more frequent update, as per the subscription. For the purpose of this project, I94 data is updated on a monthly schedule. Mapping data used to transform I94 dataset is also updated less frequently, only as more mapping keys are introduced. 
