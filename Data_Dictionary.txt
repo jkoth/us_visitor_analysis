@@ -1,0 +1,58 @@
+visitor analysis
+    admission_id                - admission number
+    arrival_date                - date of arrival in YYYY-MM-DD format
+    port_city                   - city name from where visitor entered the US
+    port_state_code             - 2 letter state code from where visitor entered the US
+    dest_state_code             - state code of the visitor entered US address
+    entry_mode                  - mode of transportation, sea, land, or air
+    visa_category               - business, pleasure, and student categories
+    origin_country              - visitor's country of citizenship/permanent residence
+    year_month                  - 4 digit year and 2 digit month YYYY-MM
+    port_dest_equal_flag        - check if port state is equal to destination sate, Y or N
+
+
+visitors
+    admission_id                - admission number
+    arrival_date                - date of arrival in YYYY-MM-DD format
+    year_month                  - 4 digit year and 2 digit month YYYY-MM
+    dest_state_code             - state code of the visitor entered US address
+    entry_mode                  - mode of transportation, sea, land, or air
+    visatype                    - class of admission legally admitting the non-immigrant to temporarily stay in u.s.
+    origin_country              - visitor's country of citizenship/permanent residence
+    port_city                   - city name from where visitor entered the US
+    visitor_age                 - age of visitor
+    departure_date              - date of departure from US YYYY-MM-DD
+    visa_expire_date            - MMDDYYYY string format
+    port_state_code             - 2 letter state code from where visitor entered the US
+    visitor_birth_year          - 4 digit birth year
+    visa_category               - business, pleasure, and student categories
+    gender                      - M/F
+
+
+arrival_date
+    arrival_date                - date of arrival in YYYY-MM-DD format
+    year                        - 4 digit year
+    month                       - 2 digit month
+    day                         - day of month
+    weekday                     - day of week
+    weeknum                     - week number of the year
+
+
+state_demographics
+    city                        - US city name
+    state_code                  - US state code
+    state                       - US state name
+    median_age                  - median age of city residents
+    male_population             - male population in the city
+    female_population           - female population in the city
+    total_population            - total city population
+    number_of_veterans          - number of veterans in the city
+    foreign_born                - number of foreign born in the city
+    average_household_size      - average household size in the city
+
+state_demographics_by_race
+    city                        - US city name
+    state_code                  - US state code
+    state                       - US state name
+    race                        - race name
+    count                       - population in the city
